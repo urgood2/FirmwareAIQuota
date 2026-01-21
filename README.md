@@ -5,6 +5,27 @@
 
 An [OpenCode](https://opencode.ai) plugin that displays your [Firmware.ai](https://firmware.ai) API quota usage and reset time.
 
+---
+
+## Quick Start (2 steps)
+
+**Step 1: Install the plugin**
+```bash
+mkdir -p ~/.config/opencode/plugins && curl -sLo ~/.config/opencode/plugins/firmware-quota.js https://raw.githubusercontent.com/urgood2/FirmwareAIQuota/main/dist/index.js
+```
+
+**Step 2: Set your API key**
+```bash
+echo 'export FIRMWARE_API_KEY="fw_api_YOUR_KEY_HERE"' >> ~/.zshrc && source ~/.zshrc
+```
+
+**Done!** Restart OpenCode and you'll see:
+```
+🔋 Firmware.ai: 95.3% remaining (4.7% used) | Resets: 12:16 KST
+```
+
+---
+
 ## Features
 
 - **Automatic quota display** - Shows remaining quota when OpenCode starts
@@ -12,13 +33,11 @@ An [OpenCode](https://opencode.ai) plugin that displays your [Firmware.ai](https
 - **Multiple config sources** - Reads API key from environment variable or common config locations
 - **Timezone-aware** - Displays reset time in your local timezone
 
-## Installation
+## Alternative Installation Methods
 
-### Option 1: Add to OpenCode config (Recommended)
+### Via npm (add to OpenCode config)
 
-Add the plugin to your OpenCode configuration file:
-
-**Project-level** (`opencode.json` in your project root):
+Add to your `~/.config/opencode/opencode.json`:
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
@@ -26,27 +45,10 @@ Add the plugin to your OpenCode configuration file:
 }
 ```
 
-**Global** (`~/.config/opencode/opencode.json`):
-```json
-{
-  "$schema": "https://opencode.ai/config.json",
-  "plugin": ["opencode-firmware-quota"]
-}
-```
-
-### Option 2: Local plugin file
-
-Copy the plugin directly to your OpenCode plugins directory:
-
+### Via curl (project-level)
 ```bash
-# Global plugins
-mkdir -p ~/.config/opencode/plugins
-curl -o ~/.config/opencode/plugins/firmware-quota.js \
-  https://raw.githubusercontent.com/urgood2/FirmwareAIQuota/main/dist/index.js
-
-# Or project-level
 mkdir -p .opencode/plugins
-curl -o .opencode/plugins/firmware-quota.js \
+curl -sLo .opencode/plugins/firmware-quota.js \
   https://raw.githubusercontent.com/urgood2/FirmwareAIQuota/main/dist/index.js
 ```
 
