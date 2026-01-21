@@ -11,6 +11,9 @@ function getApiKey() {
         path.join(os.homedir(), "Projects", "LLM-API-Key-Proxy", ".env"),
         path.join(os.homedir(), ".firmware", "credentials"),
         path.join(os.homedir(), ".config", "firmware", "api_key"),
+        ...(process.platform === "win32" && process.env.APPDATA
+            ? [path.join(process.env.APPDATA, "firmware", "api_key")]
+            : []),
     ];
     for (const envPath of envPaths) {
         try {

@@ -9,14 +9,25 @@ An [OpenCode](https://opencode.ai) plugin that displays your [Firmware.ai](https
 
 ## Quick Start (2 steps)
 
-**Step 1: Install the plugin**
+### macOS / Linux
+
 ```bash
+# Step 1: Install
 mkdir -p ~/.config/opencode/plugins && curl -sLo ~/.config/opencode/plugins/firmware-quota.js https://raw.githubusercontent.com/urgood2/FirmwareAIQuota/main/dist/index.js
+
+# Step 2: Set API key (add to ~/.zshrc or ~/.bashrc)
+export FIRMWARE_API_KEY="fw_api_YOUR_KEY_HERE"
 ```
 
-**Step 2: Set your API key**
-```bash
-echo 'export FIRMWARE_API_KEY="fw_api_YOUR_KEY_HERE"' >> ~/.zshrc && source ~/.zshrc
+### Windows (PowerShell)
+
+```powershell
+# Step 1: Install
+New-Item -ItemType Directory -Force -Path "$env:APPDATA\opencode\plugins" | Out-Null
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/urgood2/FirmwareAIQuota/main/dist/index.js" -OutFile "$env:APPDATA\opencode\plugins\firmware-quota.js"
+
+# Step 2: Set API key (run as Administrator for permanent)
+[Environment]::SetEnvironmentVariable("FIRMWARE_API_KEY", "fw_api_YOUR_KEY_HERE", "User")
 ```
 
 **Done!** Restart OpenCode and you'll see:
