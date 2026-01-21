@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "opencode-firmware-quota",
+  "version": "1.0.0",
+  "description": "OpenCode plugin to display Firmware.ai API quota usage and reset time",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "firmware",
+    "firmware.ai",
+    "quota",
+    "api",
+    "llm",
+    "ai"
+  ],
+  "author": "urgood2",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/urgood2/FirmwareAIQuota.git"
+  },
+  "homepage": "https://github.com/urgood2/FirmwareAIQuota#readme",
+  "bugs": {
+    "url": "https://github.com/urgood2/FirmwareAIQuota/issues"
+  },
+  "peerDependencies": {
+    "@opencode-ai/plugin": ">=1.0.0"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "^1.0.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.0.0"
+  }
+}
